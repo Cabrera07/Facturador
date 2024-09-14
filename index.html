@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturador</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- JS Link -->
+    <script defer src="js/script.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.jpeg" type="image/jpg">
+</head>
+<body>
+    <!--CONTENEDOR PRINCIPAL-->
+    <div class="container">
+        <h1>Generador de Facturas</h1>
+        <form action="facturador.php" method="post" id="facturaForm">
+
+            <!--Ingreso de Articulos y Precios-->
+            <div id="articulos">
+                <div class="articulo">
+                    <input type="text" name="nombre[]" class="nombre-input" placeholder="Nombre del artículo" required>
+                    <input type="number" name="cantidad[]" class="cantidad-input" placeholder="Cantidad" min="1" required>
+                    <input type="number" name="precio[]" class="precio-input" placeholder="Precio unitario" step="0.01" min="0" required>
+                    <button type="button" class="removerArticulo" style="visibility: hidden;">Eliminar</button>
+                </div>
+            </div>
+
+            <!-- Toales de la Factura -->
+            <div class="totales">
+                <p><b>Subtotal:</b> $<span id="subtotal">0.00</span></p>
+                <p><b>ITBMS (7%):</b> $<span id="itbms">0.00</span></p>
+                <p><b>Total:</b> $<span id="total">0.00</span></p>
+            </div>
+
+            <!-- Botones -->
+            <div class="buttons">
+                <button type="button" id="agregarArticulo">Agregar otro artículo</button>
+                <button type="button" id="limpiarInputs">Limpiar campos</button>
+                <button type="submit">Generar Factura</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
