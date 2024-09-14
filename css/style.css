@@ -1,0 +1,202 @@
+/* ---------- VARIABLES DE COLOR ---------- */
+:root {
+    --white: #ffffff80;
+    --blue: #1e90ff;
+    --green: #39d24a;
+    --yellow: #ffe244;
+    --pink: #ff36a3;
+    --red: #ff4136;
+}
+
+/* ---------- ESTILOS DEL CUERPO (BODY) ---------- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    /* Fondo con múltiples gradientes */
+    background: 
+        radial-gradient(circle at bottom, var(--white), transparent 80%),    
+        linear-gradient(to top, dodgerblue 0%, transparent 70%),    
+        linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4) 70%),
+        var(--blue);  
+    /* Animación de cambio de color del fondo */
+    animation: bg 30s infinite;
+    font-size: 16px;
+}
+
+/* ---------- ANIMACIÓN DE CAMBIO DE COLOR DEL FONDO ---------- */
+@keyframes bg {
+    0%, 100% { background-color: var(--blue); }
+    25% { background-color: var(--green); }
+    50% { background-color: var(--yellow); }
+    75% { background-color: var(--pink); }
+}
+
+/* ---------- ESTILOS DEL CONTENEDOR PRINCIPAL ---------- */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* ---------- ESTILOS PARA EL TÍTULO PRINCIPAL (H1) ---------- */
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+/* ---------- ESTILOS DEL FORMULARIO ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ---------- ESTILOS DE CADA ARTÍCULO ---------- */
+.articulo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.nombre-input {
+    flex: 2;
+}
+
+.cantidad-input,
+.precio-input {
+    flex: 1;
+}
+
+/* ---------- ESTILOS GENERALES DE LOS INPUTS ---------- */
+input[type="text"],
+input[type="number"] {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 20px; 
+}
+
+/* ---------- BOTÓN PARA ELIMINAR ARTÍCULO ---------- */
+.removerArticulo {
+    padding: 12px 18px;
+    background-color: var(--red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.removerArticulo:hover {
+    background-color: #d9534f;
+}
+
+/* ---------- SECCIÓN DE TOTALES (SUBTOTAL, ITBMS, TOTAL) ---------- */
+.totales {
+    margin-top: 30px;
+    text-align: right;
+    font-size: 22px;
+}
+
+/* ---------- SECCIÓN DE BOTONES ---------- */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+/* ---------- ESTILOS GENERALES DE LOS BOTONES ---------- */
+button {
+    padding: 12px 20px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    
+    transition: background-color 0.3s ease;
+}
+
+/* Botón para agregar artículos */
+#agregarArticulo {
+    background-color: #337ab7;
+}
+
+#agregarArticulo:hover {
+    background-color: #286090;
+}
+
+/* Botón para limpiar campos */
+#limpiarInputs {
+    background-color: #f0ad4e;
+}
+
+#limpiarInputs:hover {
+    background-color: #ec971f;
+}
+
+/* Botón para generar la factura */
+button[type="submit"] {
+    background-color: #5cb85c;
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+/* ---------- ESTILOS ADAPTATIVOS PARA PANTALLAS PEQUEÑAS ---------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .articulo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .nombre-input,
+    .cantidad-input,
+    .precio-input {
+        flex: 1 1 100%;
+    }
+    
+    .removerArticulo {
+        align-self: flex-end;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    button {
+        font-size: 18px;
+    }
+}
